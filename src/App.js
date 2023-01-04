@@ -7,11 +7,21 @@ import { useState } from "react";
       const people = list.map(person => {
         return <h1>{person}</h1>  
       })
+
+      function addName(name){
+        setList(prevState => {
+          return(
+            [...prevState,
+            name]
+          )
+        })
+      }
     
       return (
         <div className="App">
           <h2>Add New Name</h2>
-          <Form />
+          <Form 
+          addList={addName}/>
           <h1>{people}</h1>
         </div>
       );
